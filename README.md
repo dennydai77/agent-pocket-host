@@ -55,4 +55,8 @@ uv run --frozen ruff check pocket
 uv build
 ```
 
-Backend 邊界見 [ADAPTERS](docs/ADAPTERS.md)，傳輸規格见 [PROTOCOL](docs/PROTOCOL.md)。原始碼與 lockfile 可獨立發佈；`.runtime`、配對圖片／JSON、session、私鑰、資料庫及憑證不得加入 Git。尚未建立公開 GitHub repository；開源授權在公開發佈前決定，未宣稱已有 license。
+Backend 邊界見 [ADAPTERS](docs/ADAPTERS.md)，傳輸規格见 [PROTOCOL](docs/PROTOCOL.md)。原始碼與 lockfile 可獨立發佈；`.runtime`、配對圖片／JSON、session、私鑰、資料庫及憑證不得加入 Git。
+
+## 授權
+
+[MIT](LICENSE) © 2026 DennyDai

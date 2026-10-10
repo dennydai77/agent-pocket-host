@@ -16,7 +16,7 @@
 - 原 App 的其他主機自簽 TLS 限制尚未修改。
 - pi 圖片分析、工具操作及群聊 Agent 尚未實作；目前為私人文字後端。
 - OpenClaw adapter 沿用原實作並通過回歸測試；本次未重新進行雲端模型實測。
-- Skill 已放在 repo，未安裝至任何現有 Agent。尚未建立或推送公開 GitHub，也尚未決定開源授權。
+- Skill 已放在 repo，未安裝至任何現有 Agent。開源授權採用 MIT（見 LICENSE）；尚未建立或推送公開 GitHub。
 
 ## pi 模型清單更新（2026-10-10 晚間）
 
