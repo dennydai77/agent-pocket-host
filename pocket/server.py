@@ -12,6 +12,7 @@ from aiohttp import web
 
 from .adapters import create_runner
 from .attachments import register as register_attachments
+from .catalog import refresh_pi_models
 from .core import Store
 from .performance import measured
 from .room_routes import register
@@ -68,7 +69,17 @@ def make_app(state: Path, config: dict, runner=None, room_runner=None):
         data = await body(request)
         return web.json_response(store.pair(text(data, "invite", 128), text(data, "name", 80)))
 
+    catalog_lock = asyncio.Lock()
+
     async def settings(request):
+        if request.query.get("refresh_models") == "1" and config.get("backend") == "pi":
+            if store.rooms.scope(request["device"]) == "member":
+                raise web.HTTPForbidden(text="成員不可更新私人模型清單")
+            async with catalog_lock:
+                try:
+                    await refresh_pi_models(config)
+                except (ValueError, OSError, asyncio.TimeoutError):
+                    return web.json_response({"error": "pi 模型清單更新失敗，保留原清單，請重試。"}, status=503)
         return web.json_response(
             {
                 "agent": config["agent"]
