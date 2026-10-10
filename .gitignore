@@ -1,0 +1,13 @@
+.runtime/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.log
+*.sqlite3*
+*.pem
+pairing.*
+.env*
+dist/
+.DS_Store
